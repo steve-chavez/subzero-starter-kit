@@ -1,0 +1,19 @@
+{
+  "id": "6ef3df88-1d02-4f46-9490-49f431636183",
+  "name": "kmalone-app",
+  "domain": "kmalone-app.subzero.cloud",
+  "openresty_repo": "registry.subzero.cloud/appid-6ef3df88-1d02-4f46-9490-49f431636183/openresty",
+  "db_service_host": "appid-6ef3df88-1d02-4f46-9490-49f431636183-db.db.subzero.cloud",
+  "db_location": "container",
+  "db_admin": "superuser",
+  "db_host": null,
+  "db_port": null,
+  "db_name": "app",
+  "db_schema": "api",
+  "db_authenticator": "authenticator",
+  "db_anon_role": "anonymous",
+  "max_rows": null,
+  "pre_request": null,
+  "version": "v0.0.1",
+  "openresty_image_type": "custom"
+}
