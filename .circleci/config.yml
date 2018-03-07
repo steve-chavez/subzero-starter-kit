@@ -62,6 +62,7 @@ jobs:
           paths:
             - node_modules
           key: v2-npm-dependencies-{{ checksum "package.json" }}
+
   test:
     machine:
       enabled: true
@@ -192,12 +193,8 @@ jobs:
           - v2-docker-images
       - checkout
       - run:
-          name: install subzero-cli and dependencies
-          command: |
-            sudo apt-get install nodejs
-            sudo apt-get install npm
-            sudo apt-get install dnsutils
-            sudo npm install -g subzero-cli
+          name: install subzero-cli
+          command: npm install -g subzero-cli
       - deploy:
           name: deploy the openresty image and latest database migrations
           command: |
