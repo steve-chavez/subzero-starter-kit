@@ -1,0 +1,11 @@
+{
+  "name": "subzerostarterkit",
+  "domain": "steve-chavez.website",
+  "openresty_repo": "419247335544.dkr.ecr.us-east-2.amazonaws.com/subzerostarterkit/openresty",
+  "db_location": "external",
+  "db_admin": "superuser",
+  "db_host": "subzerostarterkit-db.cporsylldpoj.us-east-2.rds.amazonaws.com",
+  "db_port": 5432,
+  "db_name": "app",
+  "version": "v0.0.1"
+}
