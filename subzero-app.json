@@ -7,5 +7,5 @@
   "db_host": "subzerostarterkit-db.cporsylldpoj.us-east-2.rds.amazonaws.com",
   "db_port": 5432,
   "db_name": "app",
-  "version": "v0.0.1"
+  "version": "v0.0.2"
 }

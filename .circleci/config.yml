@@ -13,6 +13,10 @@
 # PRODUCTION_DB_HOST - host uri (ex: myapplication-db.zzzzzzzzz.us-east-1.rds.amazonaws.com:5432)
 # DB_NAME - database name
 # PRODUCTION_DB_SECURITY_GROUP - AWS security group id that the db is in
+#
+# If you use subzero.cloud you need this env vars
+# SUBZERO_CLOUD_USER
+# SUBZERO_CLOUD_PASSWORD
 
 version: 2
 jobs:
@@ -100,7 +104,7 @@ jobs:
       - deploy:
           name: deploy the openresty image and latest database migrations
           command: |
-            aws ecr get-login --region $AWS_REGION | sh
+            aws ecr get-login --region $AWS_REGION --no-include-email | sh
             # temporatily whitelist CircleCI ip
             public_ip_address=$(wget -qO- http://checkip.amazonaws.com)
             echo "this computers public ip address is $public_ip_address"
@@ -111,7 +115,7 @@ jobs:
               --port 5432 \
               --cidr ${public_ip_address}/32
             sleep 5
-            subzero cloud app-deploy -p $PRODUCTION_SUPER_USER_PASSWORD
+            subzero cloud app-deploy --dba $SUPER_USER --password $PRODUCTION_SUPER_USER_PASSWORD
             aws ec2 revoke-security-group-ingress \
               --region $AWS_REGION \
               --group-id $PRODUCTION_DB_SECURITY_GROUP \
@@ -161,8 +165,8 @@ jobs:
       - deploy:
           name: deploy the openresty image and latest database migrations
           command: |
-            subzero cloud login -e $SUBZERO_CLOUD_USER -p $SUBZERO_CLOUD_PASSWORD
-            subzero cloud app-deploy -p $PRODUCTION_SUPER_USER_PASSWORD
+            subzero cloud login --email $SUBZERO_CLOUD_USER --password $SUBZERO_CLOUD_PASSWORD
+            subzero cloud app-deploy --password $PRODUCTION_SUPER_USER_PASSWORD
 
 workflows:
   version: 2
