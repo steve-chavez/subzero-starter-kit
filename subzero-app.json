@@ -1,0 +1,19 @@
+{
+  "id": "d144b701-8d84-41e2-a144-f9d26e034b7e",
+  "name": "subzerostarterkit",
+  "domain": "dschrute-app.subzero.cloud",
+  "openresty_repo": "registry.subzero.cloud/appid-d144b701-8d84-41e2-a144-f9d26e034b7e/openresty",
+  "db_service_host": null,
+  "db_location": "external",
+  "db_admin": null,
+  "db_host": "subzerostarterkit-db.cporsylldpoj.us-east-2.rds.amazonaws.com",
+  "db_port": 5432,
+  "db_name": "app",
+  "db_schema": "api",
+  "db_authenticator": "authenticator",
+  "db_anon_role": "anonymous",
+  "max_rows": null,
+  "pre_request": null,
+  "version": "v0.0.1",
+  "openresty_image_type": "custom"
+}
